@@ -1,1 +1,223 @@
+/*
+ * HW07：高美濕地報導之外部樣式表。
+ * 檔案位置：css/hw07.css；使用小寫英文與 .css 副檔名，名稱不含空白。
+ * 原則：沿用 HW06 的屬性值與規則順序，只改變 CSS 的存放位置，並取代原行內樣式。
+ * HTML 負責內容與語意，此外部 CSS 負責外觀；本檔不放 HTML 標籤。
+ */
 
+/* 1. 元素選擇器與全域設定 */
+* {
+    /* box-sizing 讓元素的寬度包含內距(padding)與框線(border)，排版較不易跑版 */
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "文泉驛正黑", "微軟正黑體", sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #5a4332; /* 深咖啡色文字，取代純黑，讓畫面更溫和 */
+    background-color: #fff9f5; /* 整體極淡的橘色背景 */
+}
+
+/* 2. 頁首與章節標題 */
+header {
+    padding: 34px 36px;
+    background-color: #ffecd9; /* 較深的淡橘色背景，突顯頁首 */
+    border-top: 6px solid #ffaa55; /* 亮橘色頂部框線 (border) */
+    border-radius: 8px; /* 圓角 */
+    margin-bottom: 32px;
+}
+
+h1, h2, h3 {
+    margin: 0 0 16px;
+    font-size: 2rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: #d25f15; /* 橘紅色標題，建立視覺層次 */
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-left: 4px solid #ffaa55; /* 標題左側橘色裝飾線 */
+    padding-left: 12px;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+section {
+    margin-bottom: 40px; /* 增加各段落間的留白 */
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ffe0cc; /* 淡橘色分隔線 */
+    margin: 32px 0;
+}
+
+/* 3. 導覽列與連結互動 */
+nav {
+    background-color: #fff4e6;
+    padding: 20px 24px;
+    border: 1px solid #ffd1a3;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+}
+
+a {
+    color: #cc6600; /* 橘色連結 */
+    text-decoration: none;
+    border-bottom: 1px dashed #cc6600;
+    padding: 2px 4px;
+    transition: all 0.2s ease; /* 讓顏色切換平滑 */
+}
+
+a:hover {
+    color: #994d00;
+    background-color: #ffe6cc;
+    border-bottom: 1px solid #994d00;
+}
+
+a:focus-visible {
+    outline: 3px solid #ff9933;
+    background-color: #ffe6cc;
+    border-radius: 4px;
+}
+
+/* 4. 表格樣式 */
+.info-table {
+    width: 100%;
+    border-collapse: collapse; /* 讓相鄰單元格的框線合併成一條 */
+    margin: 20px 0;
+    background-color: #ffffff;
+}
+        
+.info-table th, .info-table td {
+    border: 1px solid #ffcc99; /* CSS 實作的橘色框線 */
+    padding: 12px; /* 內距確保文字不貼緊框線 */
+    text-align: left;
+}
+
+.info-table th {
+    background-color: #ffd8b3; /* 表頭使用稍微顯眼的橘色背景 */
+    color: #663d14;
+}
+
+/* 5. 圖片與媒體呈現 (RWD 響應式基礎) */
+img {
+    max-width: 100%; /* 限制圖片最大寬度不超過父容器 */
+    height: auto;    /* 高度設為 auto，圖片才不會變形 */
+    border-radius: 8px;
+    border: 2px solid #ffcc99;
+    display: block;
+}
+
+figure {
+    margin: 0;
+    padding: 16px;
+    background-color: #fffcf9;
+    border: 1px solid #ffebcc;
+    border-radius: 8px;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #8c7361;
+    text-align: center;
+}
+
+.media-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.media-container iframe {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ffcc99;
+}
+
+.video-ratio {
+    aspect-ratio: 16 / 9;
+}
+
+.map-ratio {
+    aspect-ratio: 4 / 3;
+}
+
+/* 6. 補充區塊 */
+#tips {
+    background-color: #fff4e6;
+    border: 2px dashed #ffaa55; /* 橘色虛線外框，強化補充資訊的視覺效果 */
+    padding: 24px;
+    border-radius: 8px;
+    margin: 32px 0;
+}
+        
+#tips summary {
+    font-weight: bold;
+    color: #d25f15;
+    cursor: pointer;
+}
+
+/* 7. 頁尾微調 */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 2px solid #ffcc99;
+    color: #8c7361;
+}
+
+/* 8. 窄螢幕 (手機版) 響應式微調 */
+@media (max-width: 600px) {
+    body {
+        padding: 16px 12px;
+    }
+    header {
+        padding: 20px 16px;
+    }
+}
+
+/* 
+ * 9. HW06 原有的行內樣式 (Inline styles) 改寫為 Class 
+ */
+
+/* 遷移 1/3：原頁首小字聲明斜體 */
+.report-disclaimer {
+    color: #a67c52; 
+    font-style: italic;
+}
+
+/* 遷移 2/3：原 mark 標籤客製化底色與圓角 */
+.reading-focus {
+    background-color: #ffd1a3;
+    color: #994d00;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 遷移 3/3：原推薦路線的引言左框線排版 */
+.route-note {
+    border-left: 6px solid #ffaa55; 
+    padding-left: 12px; 
+    background-color: #fff2e6; 
+    margin: 16px 0; 
+    padding-top: 12px; 
+    padding-bottom: 12px;
+}
